@@ -56,11 +56,11 @@ function stopwatchStart() {
 }
 
 function paintLaptime() {
+  console.log(STOPWATCH_TIME);
   const lapTime = document.createElement("li");
   const min = parseInt(STOPWATCH_TIME / 6000);
   const sec = parseInt((STOPWATCH_TIME % 6000) / 100);
   const milisec = (STOPWATCH_TIME % 6000) % 100;
-  LAPTIME_LIST.push(STOPWATCH_TIME);
   lapTime.innerText = `${STOPWATCH_LAP < 10 ? `0${STOPWATCH_LAP}` : STOPWATCH_LAP} | ${min < 10 ? `0${min}` : min}:${sec < 10 ? `0${sec}` : sec}:${milisec < 10 ? `0${milisec}` : milisec}`;
   lapTime.classList.add("laptime_li");
   laptimeArea.appendChild(lapTime);
@@ -88,10 +88,10 @@ function stopwatch(btn) {
     console.log("stopwatch_btn:", btn);
   } else if (btn === 2) {
     paintLaptime();
-  } else if (btn === 3 && STOPWATCH_BTN !== 3) {
+  } else if (btn === 3) {
     clearInterval(STOPWATCH_INTERVAL);
     STOPWATCH_TIME = 0;
-    STOPWATCH_BTN = 2;
+    STOPWATCH_BTN = 3;
     timeSpan.innerText = "00:00:00";
     removeLap();
     console.log("stopwatch_btn:", btn);
@@ -245,7 +245,6 @@ function changeMode(i) {
   } else if (i === 2 && MODE !== 2) {
     MODE = 2;
     removeLap();
-    stopwatchStart();
     console.log("MODE:", MODE);
   }
 }
