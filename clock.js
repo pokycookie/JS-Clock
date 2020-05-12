@@ -46,12 +46,16 @@ function paintClock(years, months, dates, hours, minutes, seconds) {
 }
 
 function stopwatchStart() {
-  const min = parseInt(STOPWATCH_TIME / 6000);
-  const sec = parseInt((STOPWATCH_TIME % 6000) / 100);
-  const milisec = (STOPWATCH_TIME % 6000) % 100;
-  STOPWATCH_TIME += 1;
-  if (MODE === 2) {
-    timeSpan.innerText = `${min < 10 ? `0${min}` : min}:${sec < 10 ? `0${sec}` : sec}:${milisec < 10 ? `0${milisec}` : milisec}`;
+  if (STOPWATCH_BTN === 3) {
+    timeSpan.innerText = "00:00:00";
+  } else {
+    const min = parseInt(STOPWATCH_TIME / 6000);
+    const sec = parseInt((STOPWATCH_TIME % 6000) / 100);
+    const milisec = (STOPWATCH_TIME % 6000) % 100;
+    STOPWATCH_TIME += 1;
+    if (MODE === 2) {
+      timeSpan.innerText = `${min < 10 ? `0${min}` : min}:${sec < 10 ? `0${sec}` : sec}:${milisec < 10 ? `0${milisec}` : milisec}`;
+    }
   }
 }
 
@@ -245,6 +249,7 @@ function changeMode(i) {
   } else if (i === 2 && MODE !== 2) {
     MODE = 2;
     removeLap();
+    stopwatchStart();
     console.log("MODE:", MODE);
   }
 }
