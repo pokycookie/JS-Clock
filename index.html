@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>CLOCK</title>
+  </head>
+  <body>
+    <div class="modal_area">
+      <div class="modal_window"></div>
+    </div>
+    <div class="clock_area">
+      <span class="date_span">0000.00.00</span>
+      <span class="time_span">00:00:00</span>
+    </div>
+    <div class="mode_area">
+      <div class="mode_btn_area">
+        <button class="mode_btn mode_clock_btn">Clock</button>
+        <button class="mode_btn mode_timer_btn">Timer</button>
+        <button class="mode_btn mode_stopwatch_btn">StopWatch</button>
+      </div>
+      <div class="mode_form_area">
+        <form class="mode_form checked"></form>
+        <form class="mode_timer_form mode_form">
+          <div class="timer_button_area">
+            <button class="timer_btn">START</button>
+            <button class="timer_btn">PAUSE</button>
+            <button class="timer_btn">RESET</button>
+          </div>
+          <div class="timer_input_area">
+            <label for="timer_hour">Hour</label>
+            <input type="number" max="23" min="0" value="0" class="timer_input" id="timer_hour" />
+            <label for="timer_min">Min</label>
+            <input type="number" max="59" min="0" value="0" class="timer_input" id="timer_min" />
+            <label for="timer_sec">Sec</label>
+            <input type="number" max="59" min="0" value="0" class="timer_input" id="timer_sec" />
+          </div>
+        </form>
+        <form class="mode_stopwatch_form mode_form">
+          <div class="stopwatch_button_area">
+            <button class="stopwatch_btn">START</button>
+            <button class="stopwatch_btn">PAUSE</button>
+            <button class="stopwatch_btn">LAP</button>
+            <button class="stopwatch_btn">RESET</button>
+          </div>
+          <div class="mode_contents_area">
+            <ul class="laptime_area"></ul>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="clock.js"></script>
+  </body>
+</html>
